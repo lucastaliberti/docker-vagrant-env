@@ -1,4 +1,4 @@
-ccFROM node
+FROM node
 
 # Install nodemon
 RUN npm install -g nodemon
