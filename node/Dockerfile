@@ -4,9 +4,10 @@ FROM node
 RUN npm install -g nodemon
 
 # Provides cached layer for node_modules
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
-RUN mkdir -p /vagrant/node && cp -a /tmp/node_modules /vagrant/node
+RUN mkdir -p /vagrant/node
+ADD package.json /vagrant/node/package.json
+RUN cd /vagrant/node
+RUN npm install
 
 # Define working directory
 WORKDIR /vagrant/node
